@@ -5,20 +5,26 @@ method: post
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/postcss/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/static/lookup.js"></script>
     <title>Bus Lookup</title>
   </head>
-  <body>
-    <button type="button" id="proceed">Proceed</button>
-    <form id="location" method="{{ method }}" action="/search">
-      <input type="text" name="latitude" required />
-      <input type="text" name="longitude" required />
-      <input type="text" name="now" required />
-    </form>
-    <form id="error" method="{{ method }}" action="/error">
-      <input type="text" name="code" required />
-      <input type="text" name="message" required />
-    </form>
+  <body class="bg-red-100"">
+    <div class="mx-auto max-w-xl">
+      <h1 class="p-5 text-xl text-center">近くのバス停を探す</h1>
+      <div class="text-center">
+        <button class="p-5 bg-red-900 text-white" type="button" id="proceed">位置情報を取得して探す</button>
+      </div>
+      <form id="location" method="{{ method }}" action="/search">
+        <input type="hidden" name="latitude" required />
+        <input type="hidden" name="longitude" required />
+        <input type="hidden" name="now" required />
+      </form>
+      <form id="error" method="{{ method }}" action="/error">
+        <input type="hidden" name="code" required />
+        <input type="hidden" name="message" required />
+      </form>
+    </div>
   </body>
 </html>

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "css": "npx postcss ./css/main.css -o ./postcss/main.css",
     "prepublish": "npx @11ty/eleventy && make && make purge",
     "publish": "npx vercel --prod"
   },
@@ -12,6 +13,10 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.18",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.2.4",
     "vercel": "^28.5.5"
   }
 }
