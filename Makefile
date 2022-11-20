@@ -4,6 +4,7 @@
 dir := njk/island
 njks := $(subst 11ty,njk,$(wildcard 11ty/*.njk) $(wildcard 11ty/*/*.njk))
 jss := $(patsubst %.njk,%.js,$(njks))
+omit_from_publish := $(basename $(subst api,_site,$(wildcard api/*.js)))
 
 njk/%.njk: 11ty/%.njk
 	cat $< | sed '1,/^---$$/d' > $@
@@ -17,3 +18,6 @@ $(njks): | $(dir)
 
 $(dir):
 	mkdir -p $(dir)
+
+purge: $(omit_from_publish)
+	rm -r $<
