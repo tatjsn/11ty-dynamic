@@ -6,7 +6,7 @@ module.exports = function(eleventyConfig) {
   return {
     templateFormats: ['njk'],
     dir: {
-      input: 'njk',
+      input: '11ty',
     },
   };
 }
