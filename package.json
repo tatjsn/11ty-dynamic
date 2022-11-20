@@ -1,0 +1,15 @@
+{
+  "name": "11ty-dynamic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "tatjsn <tatjsn@gmail.com> (https://github.com/tatjsn/)",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.18"
+  }
+}
