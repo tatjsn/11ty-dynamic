@@ -1,0 +1,24 @@
+---
+method: post
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/static/lookup.js"></script>
+    <title>Bus Lookup</title>
+  </head>
+  <body>
+    <button type="button" id="proceed">Proceed</button>
+    <form id="location" method="{{ method }}" action="/search">
+      <input type="text" name="latitude" required />
+      <input type="text" name="longitude" required />
+      <input type="text" name="now" required />
+    </form>
+    <form id="error" method="{{ method }}" action="/error">
+      <input type="text" name="code" required />
+      <input type="text" name="message" required />
+    </form>
+  </body>
+</html>

@@ -10,6 +10,7 @@
   "author": "tatjsn <tatjsn@gmail.com> (https://github.com/tatjsn/)",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.18"
+    "@11ty/eleventy": "^2.0.0-canary.18",
+    "vercel": "^28.5.5"
   }
 }

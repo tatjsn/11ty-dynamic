@@ -1,0 +1,35 @@
+---
+latitude: 00000
+longitude: 11111
+now: 22222
+elements:
+  - name: Sussex Ring
+    direction: Mill Hill Or Whetstone
+    bearing: NW
+    id: 1
+  - name: Sussex Ring
+    direction: Mill Hill Or Whetstone
+    bearing: NW
+    id: 1
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Lookup</title>
+  </head>
+  <body>
+    <h1>Nearby Bus Stops</h1>
+    <p>latitude: {{ latitude }}, longitude: {{ longitude }}, now: {{ now }}</p>
+    {% for element in elements %}
+      <ul>
+        <li>{{ element.bearing }}</li>
+        <li>{{ element.name }}</li>
+        <li>{{ element.direction or "(no direction)"}}</li>
+        <li>{{ element.id }}</li>
+        <li><a href="https://citymapper.com/london/bus/stops/{{ element.id }}?lang=en">Link to Citymapper</a></li>
+      </ul>
+    {% endfor %}
+  </body>
+</html>
