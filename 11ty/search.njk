@@ -5,11 +5,11 @@ now: 22222
 elements:
   - name: Sussex Ring
     direction: Mill Hill Or Whetstone
-    bearing: NW
+    indicator: AA
     id: 1111111111
   - name: Sussex Ring
     direction: Mill Hill Or Whetstone
-    bearing: NW
+    indicator: AA
     id: 1111111111
 ---
 <!DOCTYPE html>
@@ -19,6 +19,9 @@ elements:
     <link rel="stylesheet" href="/postcss/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bus Lookup</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
   </head>
   <body class="bg-red-50"">
     <div class="mx-auto max-w-xl">
@@ -28,7 +31,7 @@ elements:
         <div class="bg-white flex flex-row gap-2 p-5 mb-5">
           <div class="shrink-0">
             <span class="inline-block text-2xl p-2 bg-red-500 text-white">
-              {{ element.bearing }}
+              {{ element.indicator or "🚏" }}
             <span>
           </div>
           <div class="grow">
