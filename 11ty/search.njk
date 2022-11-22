@@ -23,14 +23,14 @@ elements:
     <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
   </head>
-  <body class="bg-red-50"">
+  <body class="bg-red-800 text-white"">
     <div class="mx-auto max-w-xl">
-      <h1 class="p-5 text-3xl font-bold text-center">近くのバス停🚌</h1>
+      <h1 class="p-5 text-3xl font-bold text-center tracking-widest">近くのバス停🚌</h1>
       <p class="text-sm">latitude: {{ latitude }}, longitude: {{ longitude }}, now: {{ now }}</p>
       {% for element in elements %}
-        <div class="bg-white flex flex-row gap-2 p-5 mb-5">
+        <div class="bg-white text-black flex flex-row gap-2 p-5 mb-5 rounded-lg drop-shadow-md">
           <div class="shrink-0">
-            <span class="inline-block text-2xl p-2 bg-red-500 text-white">
+            <span class="inline-block text-2xl p-2 bg-red-700 text-white">
               {{ element.indicator or "🚏" }}
             <span>
           </div>
