@@ -36,7 +36,7 @@ elements:
           </div>
           <div class="grow">
             <div class="text-xl">{{ element.name }}</div>
-            <div class="text-sm">{{ element.direction or "(no direction)"}}</div>
+            <div class="text-sm">{{ element.direction or element.bearing or "(no direction or bearing)"}}</div>
             <div class="text-sm">{{ element.id }}</div>
           </div>
           <div class="shrink-0">
