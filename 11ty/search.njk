@@ -3,14 +3,39 @@ latitude: 00000
 longitude: 11111
 now: 22222
 elements:
-  - name: Sussex Ring
-    direction: Mill Hill Or Whetstone
-    indicator: AA
-    id: 1111111111
-  - name: Sussex Ring
-    direction: Mill Hill Or Whetstone
-    indicator: AA
-    id: 1111111111
+- name: Sussex Ring
+  coords:
+  - 51.614863
+  - -0.189965
+  id: 490013049W
+  route_names:
+  - '221'
+  - '326'
+  route_ids:
+  - LondonBus221
+  - LondonBus326
+  brand_ids:
+  - LondonBus
+  alias: sussex-ring-nw
+  bearing: NW
+  direction: Mill Hill Or Whetstone
+  kind: transitstop
+  walk_time_seconds: 72
+- name: Hail & Ride Argyle Road
+  coords:
+  - 51.613594
+  - -0.187589
+  id: 490000375Y
+  route_names:
+  - '326'
+  route_ids:
+  - LondonBus326
+  brand_ids:
+  - LondonBus
+  alias: hail-ride-argyle-road
+  bearing: NW
+  kind: transitstop
+  walk_time_seconds: 111
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +62,11 @@ elements:
           <div class="grow">
             <div class="text-xl">{{ element.name }}</div>
             <div class="text-sm">{{ element.direction or element.bearing or "(no direction or bearing)"}}</div>
-            <div class="text-sm">{{ element.id }}</div>
+            <div class="text-sm">
+              {% for route in element.route_names %}
+                <span class="inline-block p-1 bg-red-700 text-white">{{ route }}</span>
+              {% endfor %}
+            </div>
           </div>
           <div class="shrink-0">
             <a class="inline-block p-3 bg-green-500 text-white font-bold" href="https://citymapper.com/london/bus/stops/{{ element.id }}?lang=en">
