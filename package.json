@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "css": "npx postcss ./css/main.css -o ./postcss/main.css",
-    "prepublish": "npx @11ty/eleventy && make && make purge",
+    "prepublish": "npm run css && npx @11ty/eleventy && make && make purge",
     "publish": "npx vercel --prod"
   },
   "keywords": [],
