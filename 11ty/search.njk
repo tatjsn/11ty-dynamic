@@ -66,10 +66,11 @@ elements:
               {% for route in element.route_names %}
                 <span class="inline-block p-1 bg-red-700 text-white">{{ route }}</span>
               {% endfor %}
+              <a class="inline-block p-1 bg-black text-white" href="https://maps.apple.com/?ll={{ element.coords | join(',') }}&q={{ element.name | urlencode }}">徒歩{{ (element.walk_time_seconds / 60) | round(2) }}分</a>
             </div>
           </div>
           <div class="shrink-0">
-            <a class="inline-block p-3 bg-green-500 text-white font-bold" href="https://citymapper.com/london/bus/stops/{{ element.id }}?lang=en">
+            <a class="inline-block p-3 bg-green-500 text-white font-bold" href="/stop/{{ element.id }}">
               GO→
             </a>
           </div>
