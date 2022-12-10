@@ -43,9 +43,9 @@ stops:
   <body class="bg-red-800 text-white"">
     <div class="mx-auto max-w-xl">
       {% set stop = stops[0] %}
-      <h1 class="p-5 text-3xl font-bold text-center tracking-widest">{{ stop.indicator }} - {{ stop.name }} ({{ stop.direction or stop.bearing or "no direction or bearing" }})</h1>
+      <h1 class="p-5 text-3xl font-bold text-center tracking-widest">{{ stop.indicator or "🚏" }} - {{ stop.name }} ({{ stop.direction or stop.bearing or "no direction or bearing" }})</h1>
       {% for service in stop.services %}
-        <h2 class="p-5 text-xl font-bold">{{ service.route_id }} - {{ service.headsign }}</h2>
+        <h2 class="p-5 text-xl font-bold">{{ service.route_id }} - {{ service.headsign }}行</h2>
         <ul class="px-10">
         {% for departure in service.live_departures_seconds %}
           <li>{{ (departure / 60) | round(2) }}分</li>
