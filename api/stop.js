@@ -8,7 +8,8 @@ export default async function(req, res) {
   const fetchedData = await fetchedRes.json();
   const { stops } = fetchedData;
 
-  return res.send(nunjucks().render('stop.njk', {
+  res.setHeader('Cache-Control', 'no-cache');
+  res.send(nunjucks().render('stop.njk', {
     stops,
   }));
 }

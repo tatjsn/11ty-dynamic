@@ -6,7 +6,7 @@ export default async function(req, res) {
   const fetchedData = await fetchedRes.json();
   const { elements } = fetchedData;
 
-  return res.send(nunjucks().render('search.njk', {
+  res.send(nunjucks().render('search.njk', {
     latitude: req.body.latitude,
     longitude: req.body.longitude,
     now: req.body.now,
