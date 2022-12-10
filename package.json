@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "css": "npx postcss ./css/main.css -o ./postcss/main.css",
-    "prepublish": "npm run css && npx @11ty/eleventy && make && make purge",
-    "publish": "npx vercel --prod",
+    "prepub": "npm run css && npx @11ty/eleventy && make && make purge",
+    "pub": "npx vercel --prod",
     "dev-11ty": "npx @11ty/eleventy --serve",
     "dev-vercel": "npx vercel dev"
   },
