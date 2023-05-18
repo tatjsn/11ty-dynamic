@@ -10,7 +10,6 @@ document.getElementById('proceed').addEventListener('click', () => {
       const form = document.getElementById('location');
       form.latitude.value = pos.coords.latitude;
       form.longitude.value = pos.coords.longitude;
-      form.now.value = Date.now();
       form.submit();
     },
     (err) => {
