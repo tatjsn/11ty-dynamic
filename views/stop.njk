@@ -1,41 +1,10 @@
----
-stops:
-- name: Argyle Road / Avondale & Avenue
-  coords:
-  - 51.613558
-  - -0.186392
-  indicator: TT
-  id: 490003373E
-  routes:
-  - name: '221'
-    color: "#DC241F"
-    text_color: "#FFFFFF"
-    ui_color: "#C2322E"
-    id: LondonBus221
-    brand: LondonBus
-    supports_routeinfo: true
-    aliases:
-    - bus-221
-  brands:
-  - LondonBus
-  bearing: E
-  direction: Friern Barnet
-  region_id: uk-london
-  services:
-  - headsign: Turnpike Lane Bus Station
-    route_id: LondonBus221
-    live_departures_seconds:
-    - 335
-    - 806
-    - 1301
----
 {% set stop = stops[0] %}
 {% set title %}{{ stop.indicator or "🚏" }} - {{ stop.name }} ({{ stop.direction or stop.bearing or "no direction or bearing" }}){% endset %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/postcss/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bus Lookup: {{ title | safe }}</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">

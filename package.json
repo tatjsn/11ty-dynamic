@@ -4,21 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "css": "npx postcss ./css/main.css -o ./postcss/main.css",
-    "prepub": "npm run css && npx @11ty/eleventy && make && make purge",
+    "css": "npx postcss ./css/main.css -o ./_site/css/main.css",
+    "static": "cp -r static _site",
+    "prepub": "mkdir -p _site && npm run css && npm run static",
     "pub": "npx vercel --prod",
-    "dev-11ty": "npx @11ty/eleventy --serve",
-    "dev-vercel": "npx vercel dev"
+    "d": "npx vercel dev"
   },
   "keywords": [],
   "author": "tatjsn <tatjsn@gmail.com> (https://github.com/tatjsn/)",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.18",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",
     "tailwindcss": "^3.2.4",
     "vercel": "^28.8.0"
+  },
+  "dependencies": {
+    "nunjucks": "^3.2.4"
   }
 }
