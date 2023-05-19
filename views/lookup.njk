@@ -16,7 +16,7 @@
       <div class="text-center">
         <button class="inline-block px-8 py-5 bg-green-500 active:bg-green-700 font-bold" type="button" id="proceed">GPSでバス停を探す→</button>
       </div>
-      <form id="location" method="post" action="/api/action-write-location">
+      <form id="location" method="get" action="/search">
         <input type="hidden" name="latitude" required />
         <input type="hidden" name="longitude" required />
       </form>
