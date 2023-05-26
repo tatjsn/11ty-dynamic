@@ -1,23 +1,24 @@
-const options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
+class GetLocationButtonElement extends HTMLButtonElement {
+  constructor() {
+    super();
+    this.addEventListener('click', () => {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          this.form.latitude.value = pos.coords.latitude;
+          this.form.longitude.value = pos.coords.longitude;
+          this.form.requestSubmit();
+        },
+        (err) => {
+          window.alert(`${err.code} ${err.message}`);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        }
+      );
+    });
+  }
+}
 
-document.getElementById('proceed').addEventListener('click', () => {
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      const form = document.getElementById('location');
-      form.latitude.value = pos.coords.latitude;
-      form.longitude.value = pos.coords.longitude;
-      form.submit();
-    },
-    (err) => {
-      const form = document.getElementById('error');
-      form.code.value = err.code;
-      form.message.value = err.message;
-      form.submit();
-    },
-    options
-  );
-});
+customElements.define('x-location', GetLocationButtonElement, { extends: 'button' });
