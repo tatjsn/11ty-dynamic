@@ -14,11 +14,13 @@ class GetLocationButtonElement extends HTMLButtonElement {
         {
           enableHighAccuracy: true,
           timeout: 5000,
-          maximumAge: 0
+          maximumAge: 0,
         }
       );
     });
   }
 }
 
-customElements.define('x-location', GetLocationButtonElement, { extends: 'button' });
+customElements.define('x-location', GetLocationButtonElement, {
+  extends: 'button',
+});

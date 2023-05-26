@@ -9,7 +9,7 @@
     "prepub": "mkdir -p _site && npm run css && npm run static",
     "pub": "npx vercel --prod",
     "d": "npx vercel dev",
-    "format": "npx prettier --write api"
+    "format": "npx prettier --write api static views/*.njk"
   },
   "keywords": [],
   "author": "tatjsn <tatjsn@gmail.com> (https://github.com/tatjsn/)",

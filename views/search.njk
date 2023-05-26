@@ -2,39 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bus Lookup: Nearby Bus Stops</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/favicon-16x16.png"
+    />
   </head>
   <body class="bg-red-800 text-white">
     <div class="mx-auto max-w-xl">
-      <h1 class="p-5 text-3xl font-bold text-center tracking-widest">近くのバス停🚌</h1>
+      <h1 class="p-5 text-3xl font-bold text-center tracking-widest">
+        近くのバス停🚌
+      </h1>
       {% for element in elements %}
-        <div class="bg-white text-black flex flex-row gap-2 p-5 mb-5 rounded-lg drop-shadow-md">
-          <div class="shrink-0">
-            <span class="inline-block text-2xl p-2 bg-red-700 text-white">
-              {{ element.indicator or "🚏" }}
-            <span>
+      <div
+        class="bg-white text-black flex flex-row gap-2 p-5 mb-5 rounded-lg drop-shadow-md"
+      >
+        <div class="shrink-0">
+          <span class="inline-block text-2xl p-2 bg-red-700 text-white">
+            {{ element.indicator or "🚏" }}
+          </span>
+        </div>
+        <div class="grow">
+          <div class="text-xl">{{ element.name }}</div>
+          <div class="text-sm">
+            {{ element.direction or element.bearing or "(no direction or
+            bearing)"}}
           </div>
-          <div class="grow">
-            <div class="text-xl">{{ element.name }}</div>
-            <div class="text-sm">{{ element.direction or element.bearing or "(no direction or bearing)"}}</div>
-            <div class="text-sm">
-              {% for route in element.route_names %}
-                <span class="inline-block p-1 bg-red-700 text-white">{{ route }}</span>
-              {% endfor %}
-              <a class="inline-block p-1 bg-black text-white" href="https://maps.apple.com/?ll={{ element.coords | join(',') }}&q={{ element.name | urlencode }}">徒歩{{ (element.walk_time_seconds / 60) | round(2) }}分</a>
-            </div>
-          </div>
-          <div class="shrink-0">
-            <a class="inline-block p-3 bg-green-500 active:bg-green-700 text-white font-bold" href="/stop/{{ element.id }}">
-              GO→
-            </a>
+          <div class="text-sm">
+            {% for route in element.route_names %}
+            <span class="inline-block p-1 bg-red-700 text-white"
+              >{{ route }}</span
+            >
+            {% endfor %}
+            <a
+              class="inline-block p-1 bg-black text-white"
+              href="https://maps.apple.com/?ll={{ element.coords | join(',') }}&q={{ element.name | urlencode }}"
+              >徒歩{{ (element.walk_time_seconds / 60) | round(2) }}分</a
+            >
           </div>
         </div>
+        <div class="shrink-0">
+          <a
+            class="inline-block p-3 bg-green-500 active:bg-green-700 text-white font-bold"
+            href="/stop/{{ element.id }}"
+          >
+            GO→
+          </a>
+        </div>
+      </div>
       {% endfor %}
     </div>
   </body>

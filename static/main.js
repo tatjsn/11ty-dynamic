@@ -21,7 +21,6 @@ class MyPayloadElement extends HTMLTemplateElement {
   }
 }
 
-
 customElements.define('my-island', MyIslandElement, { extends: 'div' });
 customElements.define('my-payload', MyPayloadElement, { extends: 'template' });
 
