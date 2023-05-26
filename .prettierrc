@@ -5,7 +5,7 @@
     {
       "files": "*.njk",
       "options": {
-        "parser": "html"
+        "parser": "jinja-template"
       }
     }
   ]
