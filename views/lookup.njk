@@ -31,13 +31,11 @@
         近くのバス停🚌
       </h1>
       <form class="text-center" method="get" action="/search">
-        <button
+        <x-submit-location
           class="inline-block px-8 py-5 bg-green-500 active:bg-green-700 font-bold"
-          type="button"
-          is="x-location"
         >
           GPSでバス停を探す→
-        </button>
+        </x-submit-location>
         <input type="hidden" name="latitude" required />
         <input type="hidden" name="longitude" required />
       </form>

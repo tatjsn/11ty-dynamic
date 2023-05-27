@@ -1,12 +1,13 @@
-class GetLocationButtonElement extends HTMLButtonElement {
+class E extends HTMLElement {
   constructor() {
     super();
-    this.addEventListener('click', () => {
+    this.addEventListener('click', (event) => {
+      const form = event.currentTarget.closest('form');
       navigator.geolocation.getCurrentPosition(
         (pos) => {
-          this.form.latitude.value = pos.coords.latitude;
-          this.form.longitude.value = pos.coords.longitude;
-          this.form.requestSubmit();
+          form.latitude.value = pos.coords.latitude;
+          form.longitude.value = pos.coords.longitude;
+          form.submit();
         },
         (err) => {
           window.alert(`${err.code} ${err.message}`);
@@ -21,6 +22,4 @@ class GetLocationButtonElement extends HTMLButtonElement {
   }
 }
 
-customElements.define('x-location', GetLocationButtonElement, {
-  extends: 'button',
-});
+customElements.define('x-submit-location', E);
