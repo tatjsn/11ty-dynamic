@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prepub": "make all",
+    "prepub": "make dir && make",
     "pub": "npx vercel --prod",
     "d": "npx vercel dev",
     "format": "npx prettier --write api static \"views/*.njk\"",
-    "watch": "npx chokidar \"views/*.njk\" \"css/*.css\" \"static/*.js\" -c make"
+    "watch": "npx chokidar \"views/*.njk\" \"static/*.*\" -c make"
   },
   "keywords": [],
   "author": "tatjsn <tatjsn@gmail.com> (https://github.com/tatjsn/)",
