@@ -4,18 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "css": "npx postcss ./css/main.css -o ./_site/css/main.css",
-    "static": "cp -r static _site",
-    "prepub": "mkdir -p _site && npm run css && npm run static",
+    "prepub": "make all",
     "pub": "npx vercel --prod",
     "d": "npx vercel dev",
-    "format": "npx prettier --write api static views/*.njk"
+    "format": "npx prettier --write api static \"views/*.njk\"",
+    "watch": "npx chokidar \"views/*.njk\" \"css/*.css\" \"static/*.js\" -c make"
   },
   "keywords": [],
   "author": "tatjsn <tatjsn@gmail.com> (https://github.com/tatjsn/)",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "chokidar-cli": "^3.0.0",
     "cssnano": "^6.0.1",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",

@@ -1,23 +1,28 @@
 # https://www.gnu.org/software/make/manual/html_node/Wildcard-Function.html
 # https://www.gnu.org/software/make/manual/html_node/Text-Functions.html
 # https://www.gnu.org/software/make/manual/make.html#Prerequisite-Types
-dir := njk/island
-njks := $(subst 11ty,njk,$(wildcard 11ty/*.njk) $(wildcard 11ty/*/*.njk))
-jss := $(patsubst %.njk,%.js,$(njks))
-omit_from_publish := $(basename $(subst api,_site,$(wildcard api/*.js)))
+out_css_dir := _site/css
+out_static_dir := _site/static
+njk := $(wildcard views/*.njk)
+in_static := $(wildcard static/*.*)
+out_static := $(addprefix _site/,$(in_static))
+in_css := $(wildcard css/*.css)
+out_css := $(addprefix _site/,$(in_css))
 
-njk/%.njk: 11ty/%.njk
-	cat $< | sed '1,/^---$$/d' > $@
+all: $(out_css) $(out_js)
 
-%.js: %.njk
-	cat $< | sed 's/\`/\\\`/g' | sed '1 s/^/export default \`/' | sed '$$ s/$$/\`;/' > $@
+$(out_static_dir)/%.js: static/%.js
+	cp $< $@
 
-all: $(jss)
+$(out_css_dir)/%.css: css/%.css $(njk)
+	npx postcss $< -r -o $@
 
-$(njks): | $(dir)
+$(out_js): | $(out_static_dir)
 
-$(dir):
-	mkdir -p $(dir)
+$(out_css): | $(out_css_dir)
 
-purge: $(omit_from_publish)
-	rm -r $<
+$(out_static_dir):
+	mkdir -p $(out_static_dir)
+
+$(out_css_dir):
+	mkdir -p $(out_css_dir)
