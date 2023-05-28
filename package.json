@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "cssnano": "^6.0.1",
     "postcss": "^8.4.19",
     "postcss-cli": "^10.0.0",
     "prettier": "^2.8.8",
