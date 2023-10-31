@@ -9,7 +9,7 @@ export default async function (req, res) {
 
   res.setHeader('Cache-Control', 'no-cache');
   res.send(
-    nunjucks().render('stop.njk', {
+    nunjucks().render(req.query.big ? 'stop-big.njk' : 'stop.njk', {
       stops,
     })
   );
