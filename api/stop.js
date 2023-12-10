@@ -6,11 +6,16 @@ export default async function (req, res) {
   const fetchedRes = await fetch(url);
   const fetchedData = await fetchedRes.json();
   const { stops } = fetchedData;
+  const routeDict = stops[0].routes.reduce(
+    (acc, cur) => ({ ...acc, [cur.id]: cur }),
+    {}
+  );
 
   res.setHeader('Cache-Control', 'no-cache');
   res.send(
     nunjucks().render(req.query.big ? 'stop-big.njk' : 'stop.njk', {
       stops,
+      routeDict,
     })
   );
 }

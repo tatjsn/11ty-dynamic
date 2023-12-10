@@ -35,6 +35,18 @@ export default async function (req, res) {
           ],
         },
       ],
+      routeDict: {
+        LondonBus221: {
+          name: '221',
+          color: '#DC241F',
+          text_color: '#FFFFFF',
+          ui_color: '#C2322E',
+          id: 'LondonBus221',
+          brand: 'LondonBus',
+          supports_routeinfo: true,
+          aliases: ['bus-221'],
+        },
+      },
     })
   );
 }

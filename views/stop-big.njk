@@ -30,7 +30,7 @@
       href="/static/favicon-16x16.png"
     />
     <script type="module" async>
-      navigator.wakeLock.request("screen");
+      navigator.wakeLock.request('screen');
     </script>
   </head>
 
@@ -41,7 +41,7 @@
       </h1>
       {% for service in stop.services %}
         <h2 class="p-5 text-xl font-bold">
-          {{ service.route_id }} - {{ service.headsign }}行
+          {{ routeDict[service.route_id].name }} - {{ service.headsign }}行
         </h2>
         <ul class="text-6xl">
           {% for departure in service.live_departures_seconds %}
